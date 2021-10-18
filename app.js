@@ -1,3 +1,28 @@
+
+
+
+// const newContact = {
+//   name: 'Aaaaaa Aaa',
+//   email: 'dui.in@egetlacus.ca',
+//   phone: '(294) 840-6685',
+//   favorite: true
+// }
+
+//
+
+
+
+// mongoose.connect(DB_HOST, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// })
+//   .then(() => {
+//     console.log('Database connection successful')
+//   })
+//   .catch(error => {
+//     console.log(error.message)
+//   })
+
 const express = require('express')
 const logger = require('morgan')
 const cors = require('cors')

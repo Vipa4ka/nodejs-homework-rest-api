@@ -1,66 +1,86 @@
 
-const { NotFound } = require('http-errors')
+// const CreateError = require('http-errors')
+// const { Contact } = require('../models')
 
-const contactsFunctions = require('../model/contactsFunctions')
+// const listContacts = async (req, res) => {
+//   const contacts = await Contact.find({}, '_id name email phone favorite')
+//   res.json({
+//     status: 'success',
+//     code: 200,
+//     data: { contacts }
+//   })
+// }
+// const getContactById = async (req, res) => {
+//   const { id } = req.params
+//   const contact = await Contact.findById(id, '_id name email phone favorite')
+//   if (!contact) {
+//     throw new CreateError(404, `Contact with id=${id} not found`)
+//   }
+//   res.json({
+//     status: 'success',
+//     code: 200,
+//     data: { contact }
+//   })
+// }
 
-const listContacts = async (req, res, next) => {
-  const contacts = await contactsFunctions.listContacts()
-  res.json({
-    status: 'success',
-    code: 200,
-    data: { contacts }
-  })
-}
+// const addContact = async (req, res) => {
+//   const contact = await Contact.create(req.body)
+//   res.status(201).json({
+//     status: 'success',
+//     code: 201,
+//     data: { contact }
+//   })
+// }
 
-const getContactById = async (req, res, next) => {
-  const { idx } = req.params
-  const contact = await contactsFunctions.getContactById(idx)
-  if (!contact) {
-    throw new NotFound(`Contact with id=${idx} not found`)
-  }
-  res.json(contact)
-}
+// const updateContactById = async (req, res) => {
+//   const { id } = req.params
+//   const contact = await Contact.findByIdAndUpdate(id, req.body, { new: true })
+//   if (!contact) {
+//     throw new CreateError(404, `Contact with id=${id} not found`)
+//   }
+//   res.json({
+//     status: 'success',
+//     code: 200,
+//     message: 'file was updated',
+//     data: { contact }
+//   }
+//   )
+// }
 
-const addContact = async (req, res, next) => {
-  const contact = await contactsFunctions.addContact(req.body)
-  res.status(201).json({
-    status: 'success',
-    code: 201,
-    data: { contact }
-  })
-}
+// const updateStatusContact = async (req, res) => {
+//   const { id } = req.params
+//   const { favorite } = req.body
+//   const result = await Contact.findByIdAndUpdate(id, { favorite }, { new: true })
+//   if (!result) {
+//     throw new CreateError(404, 'Missing field favorite')
+//   }
+//   res.json({
+//     status: 'success',
+//     code: 200,
+//     message: 'File was updated',
+//     data: { result }
+//   }
+//   )
+// }
 
-const updateContactById = async (req, res, next) => {
-  const { id } = req.params
-  const contact = await contactsFunctions.updateContactById(id, req.body)
-  if (!contact) {
-    throw new NotFound(`Contact with id=${id} not found`)
-  }
-  res.json({
-    status: 'success',
-    code: 200,
-    message: 'file was updated',
-    data: { result: contact }
-  })
-}
+// const removeContact = async (req, res) => {
+//   const { id } = req.params
+//   const contact = await Contact.findByIdAndDelete(id)
+//   if (!contact) {
+//     throw new CreateError(404, `Contact with id=${id} not found`)
+//   }
+//   res.json({
+//     status: 'success',
+//     code: 200,
+//     message: 'Success delete'
+//   })
+// }
 
-const removeContact = async (req, res, next) => {
-  const { id } = req.params
-  const contact = await contactsFunctions.removeContact(id)
-  if (!contact) {
-    throw new NotFound(`Contact with id=${id} not found`)
-  }
-  res.json({
-    status: 'success',
-    code: 200,
-    message: 'Success delete'
-  })
-}
-
-module.exports = {
-  listContacts,
-  getContactById,
-  addContact,
-  updateContactById,
-  removeContact,
-}
+// module.exports = {
+//   listContacts,
+//   getContactById,
+//   addContact,
+//   updateContactById,
+//   removeContact,
+//   updateStatusContact,
+// }
