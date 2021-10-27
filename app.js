@@ -1,32 +1,10 @@
 
-
-
-// const newContact = {
-//   name: 'Aaaaaa Aaa',
-//   email: 'dui.in@egetlacus.ca',
-//   phone: '(294) 840-6685',
-//   favorite: true
-// }
-
-//
-
-
-
-// mongoose.connect(DB_HOST, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true
-// })
-//   .then(() => {
-//     console.log('Database connection successful')
-//   })
-//   .catch(error => {
-//     console.log(error.message)
-//   })
-
 const express = require('express')
 const logger = require('morgan')
 const cors = require('cors')
+require('dotenv').config()
 
+const authRouter = require('./routes/api/auth')
 const contactsRouter = require('./routes/api/contacts')
 
 const app = express()
@@ -37,6 +15,7 @@ app.use(logger(formatsLogger))
 app.use(cors())
 app.use(express.json())
 
+app.use('/api/auth', authRouter)
 app.use('/api/contacts', contactsRouter)
 
 app.use((_, res) => {
